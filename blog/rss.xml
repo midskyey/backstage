@@ -4,10 +4,35 @@
         <title>Backstage Software Catalog and Developer Platform Blog</title>
         <link>https://backstage.io/blog</link>
         <description>Backstage Software Catalog and Developer Platform Blog</description>
-        <lastBuildDate>Mon, 09 Dec 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 17 Dec 2024 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[The 2024 Backstage Security Audit]]></title>
+            <link>https://backstage.io/blog/2024/12/17/backstage-security-audit-2024</link>
+            <guid>https://backstage.io/blog/2024/12/17/backstage-security-audit-2024</guid>
+            <pubDate>Tue, 17 Dec 2024 00:00:00 GMT</pubDate>
+            <description><![CDATA[TL;DR Backstage’s security posture remains strong! Today, we’re releasing the report from the second independent security audit of the Backstage project.]]></description>
+            <content:encoded><![CDATA[<p><strong>TL;DR</strong> Backstage’s security posture remains strong! Today, we’re releasing the report from the second independent security audit of the Backstage project.</p>
+<p><img decoding="async" loading="lazy" alt="Backstage Security Audit &amp;amp; Updates" src="https://backstage.io/assets/images/backstage-security-audit-d0283e8fb2fc980642fd9b4be7057cf5.png" width="1200" height="630" class="img_ev3q"></p>
+<p>As an <a href="https://www.cncf.io/blog/2022/03/15/backstage-project-joins-the-cncf-incubator/" target="_blank" rel="noopener noreferrer">Incubating project</a> within the <a href="https://www.cncf.io/" target="_blank" rel="noopener noreferrer">Cloud Native Computing Foundation</a> (CNCF), Backstage is fortunate enough to take advantage of sponsored continuous security audits. The <a href="https://ostif.org/" target="_blank" rel="noopener noreferrer">Open Source Technology Improvement Fund</a> (OSTIF) sponsors the audits as part of its ongoing efforts to secure the open source software ecosystem, and the audit itself was performed by <a href="https://x41-dsec.de/" target="_blank" rel="noopener noreferrer">X41 D-Sec</a>, who also performed the first audit. Our goal with the audit was to re-evaluate and further improve Backstage’s security posture, focusing on the core Backstage framework and plugins.</p>
+<!-- -->
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="report-findings-and-fixes">Report Findings and Fixes<a href="https://backstage.io/blog/2024/12/17/backstage-security-audit-2024#report-findings-and-fixes" class="hash-link" aria-label="Direct link to Report Findings and Fixes" title="Direct link to Report Findings and Fixes">​</a></h2>
+<p>The security audit and improvements concluded on October 16. The audit findings totalled three high and one medium severity vulnerability, alongside seven side findings with no direct security impact. All main findings were remedied in the <a href="https://backstage.io/docs/releases/v1.31.0" target="_blank" rel="noopener noreferrer">Backstage 1.31 release</a>, while the majority of the side findings were addressed by the <a href="https://backstage.io/docs/releases/v1.32.0" target="_blank" rel="noopener noreferrer">1.32 release</a>. For details on all findings, see the <a href="https://backstage.io/assets/files/X41-Backstage-Audit-2024-eb8535297d6f2542b0d61bf73c87f7fc.pdf" target="_blank">full audit report</a>.</p>
+<p>We are happy to see that there are no repeated vulnerabilities, perhaps in part due to our new <a href="https://github.com/backstage/backstage/blob/master/SECURITY.md#coding-practices" target="_blank" rel="noopener noreferrer">secure coding practices</a> following the previous audit, as well as the introduction of the <a href="https://backstage.io/docs/overview/threat-model" target="_blank" rel="noopener noreferrer">Backstage Threat Model</a>. While there was a path traversal vulnerability that was discovered in the TechDocs backend, this was more specific and related to remote paths, rather than the local filesystem. We chose to handle this as an isolated fix as there are no other occurrences of this pattern that we are aware of.</p>
+<p>The <a href="https://backstage.io/blog/2022/08/23/backstage-security-audit/" target="_blank" rel="noopener noreferrer">previous security audit</a> highlighted the need for Backstage to have its own built-in protection, to be secure by default. This, as well as the need for more robust service-to-service auth, was addressed earlier this year through the new auth system, in <a href="https://backstage.io/docs/releases/v1.24.0#breaking-auth-improvements" target="_blank" rel="noopener noreferrer">1.24</a> and following releases. The new auth system was in scope for this new security audit, and no findings were made in that area.</p>
+<p>One area with findings in both audits is the way that the auth plugin backend handles sign-in of users. This is a complex area that can often be a source of friction for the adoption experience of Backstage. As part of this audit we have made several updates especially to the documentation for sign-in resolvers, but this remains an area where it is hard to find a solution that is both simple and secure. Of course we err on the side of caution and have updated our documentation to be more strict. We will continue to explore options for improvements to the sign-in system to keep it both simple and secure out of the box, but in the meantime be sure to read the documentation section <a href="https://backstage.io/docs/auth/identity-resolver" target="_blank" rel="noopener noreferrer">sign-in identity and resolver</a> as you are setting up Backstage.</p>
+<p>We are happy with the results of this security audit, it is yet another way in which we see the continuing maturity of the Backstage projects. On behalf of the Backstage maintainers and community: thanks to the CNCF, OSTIF, and X41 D-Sec for the opportunity to improve the project.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="links-and-references">Links and References<a href="https://backstage.io/blog/2024/12/17/backstage-security-audit-2024#links-and-references" class="hash-link" aria-label="Direct link to Links and References" title="Direct link to Links and References">​</a></h2>
+<ul>
+<li><a href="https://x41-dsec.de/security/research/job/news/2024/12/16/backstage-review-2024/" target="_blank" rel="noopener noreferrer">X41 Blog Post</a></li>
+<li><a href="https://ostif.org/backstage-audit-complete/" target="_blank" rel="noopener noreferrer">OSTIF Blog Post</a></li>
+<li><a href="https://backstage.io/assets/files/X41-Backstage-Audit-2024-eb8535297d6f2542b0d61bf73c87f7fc.pdf" target="_blank">Full Audit Report</a></li>
+<li><a href="https://backstage.io/docs/overview/threat-model" target="_blank" rel="noopener noreferrer">Backstage Threat Model</a></li>
+<li><a href="https://github.com/backstage/backstage/blob/master/SECURITY.md" target="_blank" rel="noopener noreferrer">Backstage Security Policy</a></li>
+</ul>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[Backstage in Salt Lake City: Highlights from BackstageCon and KubeCon + CloudNativeCon North America 2024]]></title>
             <link>https://backstage.io/blog/2024/12/09/kubecon-slc-24</link>
@@ -1306,18 +1331,6 @@ Pulumi will then create a container based deployment in Amazon Lightsail.</p>
 <p>After this incredible year, thanks to everyone in the global Backstage community who contributed to the open source project in 2022. We are already working on the goals for 2023 – and as a roadmap teaser: we are very much committed to making the journey of adoption easier, faster, more valuable, and overall better. We would not be here today without our amazing community, so thank you for everything!</p>
 <p>Looking forward to continuing collaborating together for an exciting 2023.</p>
 <p>See you then! Happy holidays from everyone on the Backstage team at Spotify!</p>]]></content:encoded>
-        </item>
-        <item>
-            <title><![CDATA[The Linux Foundation launches its Introduction to Backstage course]]></title>
-            <link>https://backstage.io/blog/2022/11/15/linux-foundation-introduction-to-backstage-course</link>
-            <guid>https://backstage.io/blog/2022/11/15/linux-foundation-introduction-to-backstage-course</guid>
-            <pubDate>Tue, 15 Nov 2022 00:00:00 GMT</pubDate>
-            <description><![CDATA[The new Linux Foundation course is available for free on edX and is designed to help individuals understand how to map Backstage to their organization needs]]></description>
-            <content:encoded><![CDATA[<p>Backstage continues to grow in <a href="https://roadie.io/blog/backstage-consolidating-its-role-in-the-cloud-native-ecosystem/" target="_blank" rel="noopener noreferrer">popularity and maturity</a>, with industry leaders not only adopting the framework but actively participating in the community through contributions and commercial offerings. One of the most recent contributions comes from the Linux Foundation, <a href="https://training.linuxfoundation.org/blog/23107/" target="_blank" rel="noopener noreferrer">launching an introductory course</a> aimed at DevOps engineers or professionals working on Developer Productivity or Developer Experience. The course is available for free on edX, with a paid option for the certified track.</p>
-<p><a href="https://www.edx.org/course/introduction-to-backstage-developer-portals-made-easy" target="_blank" rel="noopener noreferrer"><img decoding="async" loading="lazy" alt="Introduction to Backstage: Developer Portals Made Easy (LFS142x): Enroll!" src="https://backstage.io/assets/images/Introduction-to-Backstage-Developer-Portals-Made-Easy-2-768x432-b679b1797b22193b57a54566f6728879.png" width="768" height="432" class="img_ev3q"></a></p>
-<!-- -->
-<p>The course, <a href="https://www.edx.org/course/introduction-to-backstage-developer-portals-made-easy" target="_blank" rel="noopener noreferrer">Introduction to Backstage: Developer Portals Made Easy (LFS142x)</a>, starts discussing the benefits of adopting a Developer Portal. Then, it dives into what is Backstage, its main features (Catalog, Scaffolder, TechDocs), and how to map its capabilities to your organization. At last, it provides tips on how to connect with the community to ease up your adoption journey.</p>
-<p>The course author, <a href="https://www.linkedin.com/in/jrlainfiesta/" target="_blank" rel="noopener noreferrer">Jorge Lainfiesta</a>, is a Technical Marketing Manager at <a href="https://roadie.io/" target="_blank" rel="noopener noreferrer">Roadie</a>. Jorge has a background in software engineering (PayPal) and digital communication (UCLA). He’s been working around Backstage since it was open sourced by Spotify and co-hosts community initiatives like the Backstage Users Unconference.</p>]]></content:encoded>
         </item>
     </channel>
 </rss>

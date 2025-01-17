@@ -139,6 +139,7 @@
     "@backstage/plugin-events-node": "workspace:^",
     "@backstage/plugin-permission-node": "workspace:^",
     "@backstage/types": "workspace:^",
+    "@electric-sql/pglite": "^0.2.15",
     "@google-cloud/storage": "^7.0.0",
     "@keyv/memcache": "^2.0.1",
     "@keyv/redis": "^4.0.1",
@@ -211,10 +212,14 @@
     "wait-for-expect": "^3.0.2"
   },
   "peerDependencies": {
-    "@google-cloud/cloud-sql-connector": "^1.4.0"
+    "@google-cloud/cloud-sql-connector": "^1.4.0",
+    "knex-pglite": "^0.11.0"
   },
   "peerDependenciesMeta": {
     "@google-cloud/cloud-sql-connector": {
+      "optional": true
+    },
+    "knex-pglite": {
       "optional": true
     }
   },

@@ -23,7 +23,7 @@
 <script src="/js/medium-zoom.js"></script>
 <script src="/js/dismissable-banner.js"></script>
 <script src="/js/scroll-nav-to-view-in-docs.js"></script><link rel="stylesheet" href="/assets/css/styles.099b0d78.css">
-<script src="/assets/js/runtime~main.94efeb6d.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b15fc0a6.js" defer="defer"></script>
 <script src="/assets/js/main.6db6d4a6.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -592,6 +592,7 @@ of all supported file extensions:</p>
 <ul>
 <li>To enable support for native ESM in tests, you need to run the tests with the <code>--experimental-vm-modules</code> flag enabled, typically via <code>NODE_OPTIONS=&#x27;--experimental-vm-modules&#x27;</code>.</li>
 <li>Declaring a package as <code>&quot;type&quot;: &quot;module&quot;</code> in <code>package.json</code> is supported, but in tests it will cause all local transitive dependencies to also be treated as ESM, regardless of whether they declare <code>&quot;type&quot;: &quot;module&quot;</code> or not.</li>
+<li>When running tests with coverage enabled the default <code>babel</code> coverage provider can mess with the hoisting of named exports. This can be worked around by using the <code>v8</code> provider instead by setting <code>&quot;coverageProvider&quot;: &quot;v8&quot;</code> in the Jest configuration, although note that the <code>v8</code> provider is a fair bit slower than the <code>babel</code> one.</li>
 <li>Node.js has an <a href="https://nodejs.org/docs/latest-v22.x/api/esm.html#interoperability-with-commonjs" target="_blank" rel="noopener noreferrer">ESM interoperability layer with CommonJS</a> that allows for imports from ESM to identify named exports in CommonJS packages. This interoperability layer is <strong>only</strong> enabled when importing packages with a <code>.cts</code> or <code>.cjs</code> extension. This is because the interoperability layer is not fully compatible with the NPM ecosystem, and would break package if it was enabled for <code>.js</code> files.</li>
 <li>Dynamic imports of CommonJS packages will vary in shape depending on the runtime, i.e. test vs local development, etc. It is therefore recommended to avoid dynamic imports of CommonJS packages and instead use <code>require</code>, or to use the explicit CommonJS extensions as mentioned above. If you do need to dynamically import CommonJS packages, avoid using <code>default</code> exports, as the shape of them vary across different environments and you would otherwise need to manually unwrap the import based on the shape of the module object.</li>
 </ul>

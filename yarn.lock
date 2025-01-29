@@ -3607,6 +3607,7 @@ __metadata:
     express: ^4.17.1
     express-promise-router: ^4.1.0
     fs-extra: ^11.2.0
+    get-port: ^5.1.1
     git-url-parse: ^15.0.0
     helmet: ^6.0.0
     http-errors: ^2.0.0

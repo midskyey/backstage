@@ -45,7 +45,7 @@ export const schedulerServiceFactory = createServiceFactory({
       rootLifecycle,
     });
     const router = Router();
-    router.get('/.backstage/scheduler/v1/list', async (_, res) => {
+    router.get('/.backstage/scheduler/v1/tasks', async (_, res) => {
       res.json(await schedulerService.getScheduledTasks());
     });
     http.use(router);
